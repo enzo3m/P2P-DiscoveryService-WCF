@@ -1,0 +1,1 @@
+﻿Node-7002, http://localhost:7002/QueryReplyService
