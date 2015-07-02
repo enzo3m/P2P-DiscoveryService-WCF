@@ -1,0 +1,2 @@
+﻿CalcServer.Toolboxes.MathToolbox-1.0.0.0
+CalcServer.Toolboxes.StatisticsToolbox-1.0.0.0
