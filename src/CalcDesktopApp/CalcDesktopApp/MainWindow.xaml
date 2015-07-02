@@ -1,0 +1,71 @@
+﻿<Window x:Class="CalcDesktopApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Calc Desktop App" Width="640" Height="480" ResizeMode="CanMinimize">
+    <Grid>
+        <Label Name="label1"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,0,0,0"
+               Content="Dati:"/>
+
+        <TextBox Name="textBox1"
+                 VerticalAlignment="Top" Margin="8,23,8,0" Height="70"
+                 TextWrapping="NoWrap" AcceptsReturn="True"
+                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                 Text="{Binding Path=TaskData, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+        <Label Name="label2"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,91,0,0"
+               Content="Nodo di ricerca:"/>
+
+        <TextBox Name="textBox2"
+                 VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8,114,0,0" Width="536" Height="25"
+                 TextWrapping="NoWrap"
+                 Text="{Binding Path=SearchNodeUri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+        <Button Name="button1"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,114,8,0" Width="75" Height="25"
+                Content="Cerca"
+                Command="{Binding SearchCommand}"/>
+
+        <Button Name="button2"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,160,8,0" Width="75" Height="25"
+                Content="Elabora"
+                Command="{Binding ProcessCommand}"/>
+
+        <Button Name="button3"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,195,8,0" Width="75" Height="25"
+                Content="Pulisci"
+                Command="{Binding ClearCommand}"/>
+
+        <Label Name="label3"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,137,0,0"
+               Content="Nodi di elaborazione:"/>
+        
+        <ListBox Name="listBox1"
+                 VerticalAlignment="Top" HorizontalAlignment="Left" Margin="7,160,0,0" Width="536" Height="60"
+                 ItemsSource="{Binding ProcessingServicesList}"
+                 SelectedIndex="{Binding SelectedProcessingServiceIndex, Mode=TwoWay}" />
+
+        <Label Name="label4"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,218,0,0"
+               Content="Risultati:"/>
+
+        <TextBox Name="textBox3"
+                 VerticalAlignment="Top" Margin="8,241,8,0" Height="70"
+                 TextWrapping="NoWrap" IsReadOnly="True"
+                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                 Text="{Binding Path=TaskResult, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+
+        <Label Name="label5"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,310,0,0"
+               Content="Resoconto:"/>
+
+        <TextBox Name="textBox4"
+                 Margin="8,333,8,8"
+                 TextWrapping="NoWrap" IsReadOnly="True"
+                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                 Background="Black" Foreground="White"
+                 Text="{Binding Path=ReportText, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+        
+    </Grid>
+</Window>
